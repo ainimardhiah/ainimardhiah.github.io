@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aini Mardhiah | Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #fff7fa;
+      color: #4b3b44;
+      line-height: 1.6;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 247, 250, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      border-bottom: 1px solid #f3dce6;
+    }
+
+    .nav-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+    }
+
+    .logo {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #d87093;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #5e4b55;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #d87093;
+    }
+
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-size: 3.5rem;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      color: #3d2e36;
+    }
+
+    .hero-text span {
+      color: #d87093;
+    }
+
+    .hero-text p {
+      font-size: 1.05rem;
+      margin-bottom: 30px;
+      color: #6d5b64;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s ease;
+    }
+
+    .btn-primary {
+      background: #d87093;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #c95f84;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      border: 2px solid #d87093;
+      color: #d87093;
+    }
+
+    .btn-secondary:hover {
+      background: #ffe6ef;
+    }
+
+    .hero-image {
+      display: flex;
+      justify-content: center;
+    }
+
+    .profile-card {
+      width: 320px;
+      height: 380px;
+      background: linear-gradient(145deg, #ffdce8, #fff);
+      border-radius: 30px;
+      box-shadow: 0 20px 40px rgba(216, 112, 147, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 30px;
+    }
+
+    .profile-card h2 {
+      color: #b95f81;
+      margin-bottom: 10px;
+    }
+
+    section {
+      padding: 100px 0;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      text-align: center;
+      margin-bottom: 60px;
+      color: #3d2e36;
+    }
+
+    .about-box {
+      background: white;
+      padding: 40px;
+      border-radius: 25px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+    }
+
+    .skill-card {
+      background: white;
+      padding: 25px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.04);
+      transition: 0.3s;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 25px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+      transition: 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .project-image {
+      height: 180px;
+      background: linear-gradient(135deg, #ffd9e8, #ffeef5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #b85c7d;
+    }
+
+    .project-content {
+      padding: 25px;
+    }
+
+    .project-content h3 {
+      margin-bottom: 10px;
+      color: #3d2e36;
+    }
+
+    .project-content .btn {
+      margin-top: 15px;
+      display: inline-block;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .social-icon {
+      width: 60px;
+      height: 60px;
+      background: #ffe6ef;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: #c95f84;
+      font-size: 1.4rem;
+      transition: 0.3s ease;
+    }
+
+    .social-icon:hover {
+      background: #d87093;
+      color: white;
+      transform: translateY(-5px);
+    }
+
+    .tag {
+      background: #ffe6ef;
+      color: #b85c7d;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .project-image img {
+      transition: 0.4s ease;
+    }
+
+    .project-card:hover img {
+      transform: scale(1.05);
+    }
+    .contact-box {
+      background: white;
+      padding: 50px;
+      border-radius: 30px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    }
+
+    .contact-box p {
+      margin: 15px 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #8a737d;
+    }
+
+    @media (max-width: 768px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .button-group {
+        justify-content: center;
+      }
+
+      .hero-text h1 {
+        font-size: 2.5rem;
+      }
+
+      nav ul {
+        gap: 15px;
+        font-size: 0.9rem;
+      }
+
+      .profile-card {
+        width: 100%;
+        max-width: 320px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container nav-content">
+      <div class="logo">Aini Mardhiah</div>
+
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container hero-content">
+
+      <div class="hero-text">
+        <h1>
+          Hi, I'm <span>Aini Mardhiah</span>
+        </h1>
+
+        <p>
+          Computer Science student majoring in Software Technology at UKM. I enjoy building user-focused web systems and creating interfaces that are functional, clean, and user friendly.
+        </p>
+
+        <div class="button-group">
+          <a href="#projects" class="btn btn-primary">View Projects</a>
+          <a href="https://github.com/ainimardhiah" class="btn btn-secondary" target="_blank">GitHub</a>
+          <a href="https://linkedin.com/in/ainimardhiah" class="btn btn-secondary" target="_blank">LinkedIn</a>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <div class="profile-card">
+          <div>
+            <img src="images/profile.jpg" alt="Aini Mardhiah" style="width:140px; height:140px; border-radius:50%; object-fit:cover; margin-bottom:20px; border:5px solid white;">
+
+            <h2>Software Technology Student</h2>
+
+            <p>
+              Interested in web development, UI/UX, and meaningful digital solutions.
+            </p>
+          </div>
+        </div>
+      </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+
+      <div class="about-box">
+        <p>
+          I am currently pursuing a degree in Computer Science with a major in Software Technology at Universiti Kebangsaan Malaysia (UKM). I enjoy developing systems that solve real-world problems, especially web-based applications that improve user experience and daily workflows.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title">Skills</h2>
+
+      <div class="skills-grid">
+        <div class="skill-card">HTML</div>
+        <div class="skill-card">CSS</div>
+        <div class="skill-card">JavaScript</div>
+        <div class="skill-card">PHP</div>
+        <div class="skill-card">MySQL</div>
+        <div class="skill-card">Java</div>
+        <div class="skill-card">Bootstrap</div>
+        <div class="skill-card">Figma</div>
+        <div class="skill-card">Android Studio</div>
+        <div class="skill-card">Linux</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+
+      <div class="projects-grid">
+
+        <div class="project-card">
+          <div class="project-image">
+            <img src="images/ukmlaundry.png" alt="UKMLaundry" style="width:100%; height:100%; object-fit:cover;">
+          </div>
+
+          <div class="project-content">
+            <h3>UKMLaundry</h3>
+            <p>A web-based laundry booking system for UKM students.</p>
+
+            <div class="tags">
+              <div class="tag">PHP</div>
+              <div class="tag">MySQL</div>
+              <div class="tag">JavaScript</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">
+            <img src="images/ladybloo.png" alt="LadyBloo" style="width:100%; height:100%; object-fit:cover;">
+          </div>
+
+          <div class="project-content">
+            <h3>LadyBloo</h3>
+            <p>A menstrual health app designed for Muslim women with Ramadan mode and information sharings about women-related topics. </p>
+            <a href="https://www.youtube.com/watch?v=jik9y9jwD10" target="_blank" class="btn btn-secondary">
+              View Demo
+            </a>
+            <div class="tags">
+              <div class="tag">UI/UX</div>
+              <div class="tag">Figma</div>
+              <div class="tag">Human Computer Interaction</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">
+            <img src="images/MugsSips1.png" alt="LadyBloo" style="width:100%; height:100%; object-fit:cover;">
+          </div>
+          <div class="project-content">
+            <h3>Mugs and Sips</h3>
+            <p>A Java GUI-based library management system integrated with Microsoft Access database. The application supports CRUD operations, user interaction, and efficient data management through a desktop interface.</p>
+
+            <div class="tags">
+              <div class="tag">Java Swing GUI</div>
+              <div class="tag">Advanced Database</div>
+              <div class="tag">Bootstrap</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">
+            <img src="images/MugsSips2.png" alt="Project 4" style="width:100%; height:100%; object-fit:cover;">
+          </div>
+          <div class="project-content">
+            <h3>Mugs and Sips</h3>
+            <p>A web development project for previous Mugs and Sips Java GUI Application. Builds with PHP, CSS, and MySQL using Sublime Text 3 while database is managed with PHPMyAdmin.</p>
+
+            <div class="tags">
+              <div class="tag">PHP</div>
+              <div class="tag">CSS</div>
+              <div class="tag">MySQL</div>
+              <div class="tag">PHPMyAdmin</div>
+              <div class="tag">Xampp</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">
+            <img src="images/StudyBear.png" alt="Project 5" style="width:100%; height:100%; object-fit:cover;">
+          </div>
+          <div class="project-content">
+            <h3>StudyBear</h3>
+            <p>An Android Application for students to manage their study by organizing their assignments and deadlines and track their progress. Database is managed with Firestore and Firebase Authentication.</p>
+
+            <div class="tags">
+              <div class="tag">Android Studio</div>
+              <div class="tag">Firestore</div>
+              <div class="tag">Firebase Authentication</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">
+            <img src="images/Courtsite.png" alt="Project 6" style="width:100%; height:100%; object-fit:cover;">
+          </div>
+          <div class="project-content">
+            <h3>Courtsite</h3>
+            <p>Java GUI application for managing court cases and scheduling booking.</p>
+            <a href="https://www.youtube.com/watch?v=rjBrstDbNsM" target="_blank" class="btn btn-secondary">View Demo</a>
+            <div class="tags">
+              <div class="tag">Java Swing GUI</div>
+              <div class="tag">Object-oriented Software Engineering</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">
+            <img src="images/clientserver.png" alt="Project 7" style="width:100%; height:100%; object-fit:cover;">
+          </div>
+          <div class="project-content">
+            <h3>Java Client-Server Application</h3>
+            <p>Developed a client-server quiz game using Java Socket Programming with Java Swing GUI, sound effects, image display, and real-time communication between client and server.</p>
+
+            <div class="tags">
+              <div class="tag">Java Swing Gui</div>
+              <div class="tag">TCP/IP Socket Programming</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="certificates">
+    <div class="container">
+      <h2 class="section-title">Certificates</h2>
+
+      <div class="projects-grid">
+
+        <div class="project-card">
+          <div class="project-image">
+            <img src="images/TopCoders.png" alt="Top Coders Malaysia 2025 Coding Challenge Pre Competition Workshop" style="width:100%; height:100%; object-fit:contain;">    
+          </div>
+
+          <div class="project-content">
+            <h3>Top Coders Malaysia 2025 Coding Challenge Pre Competition Workshop</h3>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">
+            <img src="images/RH124.png" alt="Red Hat System Administration I (RH124 - RHA) - Ver. 10" style="width:100%; height:100%; object-fit:contain;">    
+          </div>
+
+          <div class="project-content">
+            <h3>Red Hat System Administration I (RH124 - RHA) - Ver. 10</h3>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">
+            <img src="images/CyberThreat.png" alt="Cyber Threat Management" style="width:100%; height:100%; object-fit:contain;">    
+          </div>
+
+          <div class="project-content">
+            <h3>Cyber Threat Management</h3>
+          </div>
+      </div>
+    </div>
+    </div>
+  </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+
+      <div class="contact-box">
+        <p>
+          Feel free to connect with me through the platforms below.
+        </p>
+
+        <div style="display: flex; justify-content: center; gap: 20px; margin-top: 25px; flex-wrap: wrap;">
+
+            <a href="mailto:mardhiahhanafi03@gmail.com" target="_blank" class="social-icon">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+
+            <a href="https://github.com/ainimardhiah" target="_blank" class="social-icon">
+                <i class="fa-brands fa-github"></i>
+            </a>
+
+            <a href="https://linkedin.com/in/aini-mardhiah-4179b6364" target="_blank" class="social-icon">
+                <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Aini Mardhiah. All rights reserved.
+  </footer>
+
+</body>
+</html>
+
